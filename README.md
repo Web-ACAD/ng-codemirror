@@ -52,7 +52,8 @@ export class AppModule {}
 
 * `mode`: codemirror `mode` option
 * `theme`: codemirror `theme` option
-* `lineNumbers`: codemirror `lineNumbers`
+* `lineNumbers`: codemirror `lineNumbers` option
+* `viewportMargin`: codemirror `viewportMargin` option
 
 ## Using in angular forms
 
