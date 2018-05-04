@@ -6,7 +6,7 @@ import {WA_CODEMIRROR_DEFAULTS} from './default-configuration';
 
 
 const codemirrorInputOptions: Array<string> = [
-	'mode', 'theme', 'lineNumbers',
+	'mode', 'theme', 'lineNumbers', 'viewportMargin',
 ];
 
 
@@ -33,6 +33,9 @@ export class CodemirrorComponent implements OnInit, OnChanges, ControlValueAcces
 
 	@Input()
 	public lineNumbers: boolean|undefined;
+
+	@Input()
+	public viewportMargin: number|undefined;
 
 	protected codemirror: CodeMirror.Editor;
 
@@ -63,6 +66,10 @@ export class CodemirrorComponent implements OnInit, OnChanges, ControlValueAcces
 
 		if (typeof this.theme !== 'undefined') {
 			config.theme = this.theme;
+		}
+
+		if (typeof this.viewportMargin !== 'undefined') {
+			config.viewportMargin = this.viewportMargin;
 		}
 
 		if (typeof this.defaultValue !== 'undefined') {
