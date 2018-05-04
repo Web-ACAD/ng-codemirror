@@ -1,8 +1,13 @@
-import {Component, OnInit, ElementRef, Input, Inject, Optional} from '@angular/core';
+import {Component, OnInit, OnChanges, SimpleChanges, ElementRef, Input, Inject, Optional} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 import CodeMirror from 'codemirror';
 
 import {WA_CODEMIRROR_DEFAULTS} from './default-configuration';
+
+
+const codemirrorInputOptions: Array<string> = [
+	'mode', 'theme', 'lineNumbers',
+];
 
 
 @Component({
@@ -16,7 +21,7 @@ import {WA_CODEMIRROR_DEFAULTS} from './default-configuration';
 		},
 	],
 })
-export class CodemirrorComponent implements OnInit, ControlValueAccessor
+export class CodemirrorComponent implements OnInit, OnChanges, ControlValueAccessor
 {
 
 
@@ -73,6 +78,20 @@ export class CodemirrorComponent implements OnInit, ControlValueAccessor
 		this.codemirror.on('blur', () => {
 			this.onTouched();
 		});
+	}
+
+
+	public ngOnChanges(changes: SimpleChanges): void
+	{
+		if (!this.codemirror) {
+			return;
+		}
+
+		for (let option in changes) {
+			if (changes.hasOwnProperty(option) && codemirrorInputOptions.indexOf(option) >= 0) {
+				this.codemirror.setOption(option, changes[option].currentValue);
+			}
+		}
 	}
 
 
