@@ -5,25 +5,23 @@
 
 CodeMirror form component for angular.
 
+## Dependencies
+
+* `@angular/common`
+* `@angular/core`
+* `@angular/forms`
+* `codemirror`
+* `rxjs`
+
 ## Installation
 
 ```bash
-$ npm install --save @angular/common@^5.0
-$ npm install --save @angular/core@^5.0
-$ npm install --save @angular/forms@^5.0
-$ npm install --save codemirror
-$ npm install --save rxjs
 $ npm install --save @webacad/ng-codemirror
 ```
 
 or with yarn
 
 ```bash
-$ yarn add @angular/common@^5.0
-$ yarn add @angular/core@^5.0
-$ yarn add @angular/forms@^5.0
-$ yarn add codemirror
-$ yarn add rxjs
 $ yarn add @webacad/ng-codemirror
 ```
 
